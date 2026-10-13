@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:35:57 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 23:41:14 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/13 02:59:01 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	pick_enemy(t_map *map)
 	}
 }
 
+/*
 static void	set_enemy_target(t_map *map)
 {
 	map->copy_px = map->px;
@@ -49,12 +50,13 @@ static void	set_enemy_target(t_map *map)
 	if (map->move_enemy_y < 0)
 		map->move_enemy_y *= -1;
 }
+*/
 
 void	move_enemy_frame_2(int stage, t_map *map, char *image)
 {
 	if (map->move_stage_enemy == stage)
 	{
-		put_imagen_xpm(map, "./sprites/suelo_ok.xpm", map->enemy_y, map->enemy_x);
+		//put_imagen_xpm(map, "./sprites/suelo_ok.xpm", map->enemy_y, map->enemy_x);
 		put_imagen_xpm(map, image, map->enemy_y, map->enemy_x);
 	}
 }
@@ -96,31 +98,6 @@ int	move_enemies_identify(t_map *map, int i, int k)
 	return (0);
 }
 
-void	move_enemies_params(t_map *map)
-{
-	if (map->copy_n_enemies == 0)
-		map->copy_n_enemies = map->n_enemies;
-	if (map->move_stage_enemy == 0)
-	{
-		map->copy_px = map->px;
-		map->copy_py = map->py;
-		map->copy_enemy_x = map->enemy_x;
-		map->copy_enemy_y = map->enemy_y;
-		map->move_enemy_x = map->copy_enemy_x - map->copy_px;
-		if (map->move_enemy_x < 0)
-			map->move_enemy_x *= -1;
-		map->move_enemy_y = map->copy_enemy_y - map->copy_py;
-		if (map->move_enemy_y < 0)
-			map->move_enemy_y *= -1;
-	}
-	if (map->move_enemy_y >= map->move_enemy_x)
-		move_enemy_y(map);
-	if (map->move_enemy_x > map->move_enemy_y)
-		move_enemy_x(map);
-	if (map->frames_enemies == 2402)
-		map->frames_enemies = 0;
-}
-
 void	move_enemies(t_map *map)
 {
 	int	stage;
@@ -153,14 +130,9 @@ void	move_enemy_y(t_map *map)
 	move_enemy_frame_2(3, map, "./sprites/bubu_move_y3.xpm");
 	move_enemy_frame_2(4, map, "./sprites/bubu_move_y4.xpm");
 	if (map->move_stage_enemy == 5 && map->copy_py < map->copy_enemy_y)
-	{
 		move_enemy_y_up(map);
-	}
 	if (map->move_stage_enemy == 5 && map->copy_py > map->copy_enemy_y)
-	{
-		printf("move_stage_enemy: %d\n", map->move_stage_enemy);
 		move_enemy_y_down(map);
-	}
 }
 
 

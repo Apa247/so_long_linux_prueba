@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 16:20:10 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 23:36:30 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/13 01:15:45 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	move_enemy_y_down(t_map *map)
 {
-	printf("move_stage_enemy: %d\n", map->move_stage_enemy);
 	if (map->split_map[map->enemy_y + 1][map->enemy_x] == 'P')
 		closewin(map);
 	if (map->split_map[map->enemy_y + 1][map->enemy_x] != '1' &&
@@ -27,7 +26,6 @@ void	move_enemy_y_down(t_map *map)
 		put_imagen_xpm(map, "./sprites/suelo_ok.xpm",
 			map->enemy_y, map->enemy_x);
 		map->enemy_y++;
-		ft_printf("y_down: stage=%d pos=%d,%d\n", map->move_stage_enemy, map->enemy_x, map->enemy_y);
 		if (map->px == map->enemy_x && map->py == map->enemy_y)
 			closewin(map);
 		if (map->enemy_dir_x == 0)
@@ -47,7 +45,6 @@ void	move_enemy_y_up(t_map *map)
 {
 	if (map->split_map[map->enemy_y - 1][map->enemy_x] == 'P')
 		closewin(map);
-	printf("move_stage_enemy: %d\n", map->move_stage_enemy);
 	if (map->split_map[map->enemy_y - 1][map->enemy_x] != '1' &&
 		map->split_map[map->enemy_y - 1][map->enemy_x] != 'C' &&
 		map->split_map[map->enemy_y - 1][map->enemy_x] != 'E' &&
@@ -58,7 +55,6 @@ void	move_enemy_y_up(t_map *map)
 		put_imagen_xpm(map, "./sprites/suelo_ok.xpm",
 			map->enemy_y, map->enemy_x);
 		map->enemy_y--;
-		ft_printf("y_up: stage=%d pos=%d,%d\n", map->move_stage_enemy, map->enemy_x, map->enemy_y);
 		if (map->px == map->enemy_x && map->py == map->enemy_y)
 			closewin(map);
 		if (map->enemy_dir_x == 0)
@@ -78,7 +74,6 @@ void	move_enemy_y_up(t_map *map)
 
 void	move_enemy_x(t_map *map)
 {
-	printf("move_stage_enemy: %d\n", map->move_stage_enemy);
 	if (map->copy_px > map->copy_enemy_x)
 	{
 		move_enemy_frame_2(0, map, "./sprites/bubu_move_x.xpm");
@@ -117,7 +112,6 @@ void	move_enemy_x_right(t_map *map)
 		put_imagen_xpm(map, "./sprites/suelo_ok.xpm",
 			map->enemy_y, map->enemy_x);
 		map->enemy_x++;
-		ft_printf("x_right: stage=%d pos=%d,%d\n", map->move_stage_enemy, map->enemy_x, map->enemy_y);
 		map->split_map[map->enemy_y][map->enemy_x]
 			= map->split_map[map->enemy_y][map->enemy_x - 1];
 		map->split_map[map->enemy_y][map->enemy_x - 1] = '0';
@@ -145,7 +139,6 @@ void	move_enemy_x_left(t_map *map)
 		put_imagen_xpm(map, "./sprites/suelo_ok.xpm",
 			map->enemy_y, map->enemy_x);
 		map->enemy_x--;
-		ft_printf("x_left: stage=%d pos=%d,%d\n", map->move_stage_enemy, map->enemy_x, map->enemy_y);
 		move_enemy_frame_2(4, map, "./sprites/bubu_move_x5_left.xpm");
 		map->split_map[map->enemy_y][map->enemy_x]
 			= map->split_map[map->enemy_y][map->enemy_x + 1];

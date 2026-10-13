@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:35:57 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 21:53:22 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/13 01:18:39 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	put_goku_map_x(t_map *map)
 	}
 	if (map->keycode_c == 100 && map->move_stage == 2)
 	{
-		printf("eeeeeeeeeeeeeeeee");
 		if (map->supergoku == 0)
 			move_frame_2(2, map, "./sprites/goku_buena.xpm");
 		else

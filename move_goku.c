@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:35:57 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 21:59:35 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/13 01:17:42 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	move_goku_x(t_map *map)
 	if (stage == map->move_stage)
 		return ;
 	map->move_stage = stage;
-	printf("Move Stage: %d\n", map->move_stage);
 	if (map->keycode_c == 97)
 		move_goku_x_left(map);
 	if (map->keycode_c == 100)
@@ -74,7 +73,6 @@ void	move_goku_y(t_map *map)
 	if (stage == map->move_stage)
 		return ;
 	map->move_stage = stage;
-	printf("Move Stage: %d\n", map->move_stage);
 	if (map->move_stage == 0)
 	{
 		if (map->pl_dir == 0)

@@ -6,7 +6,7 @@
 #    By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 12:38:29 by daparici          #+#    #+#              #
-#    Updated: 2026/10/12 23:07:06 by daparici         ###   ########.fr        #
+#    Updated: 2026/10/13 02:51:42 by daparici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall  -Wextra -I. -I./Libft -I./GetNextLine -I./printf -I/usr/include 
 AR = ar rcs
 
 SRCS = main.c check_map_1.c check_map_2.c game.c Exit.c move_goku_ki.c move_goku.c key_select.c \
-	 move_goku_2.c enemies.c enemies_2.c map.c key_select_2.c 
+	 move_goku_2.c enemies.c enemies_2.c map.c key_select_2.c  enemy_path.c 
 PRINTF = ft_print_adress_hex_nbr.c ft_printf.c
 PRINTFPATH = $(addprefix ./printf/,$(PRINTF))
 GNL = get_next_line.c get_next_line_utils.c

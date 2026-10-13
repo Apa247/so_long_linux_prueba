@@ -6,16 +6,16 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 18:16:01 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 23:41:38 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/13 02:50:16 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define SIZE 47
-# define STEP_MS 30
-#define ENEMY_STEP_MS		50
+# define SIZE 				47
+# define STEP_MS 			30
+#define ENEMY_STEP_MS		30
 #define LAST_ENEMY_STAGE	6
 
 # include <ctype.h>
@@ -83,6 +83,16 @@ typedef struct s_map
 	long long	last_enemies;
 	long long	last_exit;
 }				t_map;
+
+typedef struct s_bfs
+{
+   	int	*dist;
+   	int	*queue;
+   	int	w;
+   	int	h;
+}	t_bfs;
+
+void	set_enemy_target(t_map *map);
 
 int		error_msg(char *msg);
 void	check_map(int argc, char **argv, t_map *map);
