@@ -46,7 +46,7 @@ void	ft_body(va_list ap, const char pos, int *len)
 	if (pos == 'p')
 		ft_printadress((unsigned long long)va_arg(ap, void *), len, pos);
 	if (pos == 'x' || pos == 'X')
-		ft_printadress((unsigned int)va_arg(ap, void *), len, pos);
+		ft_printadress((unsigned long long)va_arg(ap, unsigned int), len, pos);
 	if (pos == 'd' || pos == 'i')
 		ft_printnbr(va_arg(ap, int), len);
 	if (pos == 'u')

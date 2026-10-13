@@ -12,13 +12,16 @@
 
 
 NAME = libftprintf.a
-CC = gcc -c
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
 
 SRCS = ft_print_adress_hex_nbr.c ft_printf.c
 
 OBJS = ${SRCS:.c=.o}
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
@@ -30,6 +33,5 @@ clean:
 	$(RM) $(OBJS)
 fclean: clean
 	$(RM) $(NAME) 
-re: clean all
+re: fclean all
 .PHONY: bonus all clean fclean re
-

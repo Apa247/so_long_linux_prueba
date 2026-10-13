@@ -11,8 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-BONUS = .
-CC = gcc -c
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
 
@@ -28,11 +27,13 @@ SRCS_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast
 OBJS = ${SRCS:.c=.o}
 OBJS_B = ${SRCS_B:.c=.o}
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-$(BONUS): $(OBJS) $(OBJS_B)
+bonus: $(OBJS) $(OBJS_B)
 	$(AR) $(NAME) $(OBJS) $(OBJS_B)
 
 all: $(NAME)
@@ -43,4 +44,3 @@ fclean: clean
 	$(RM) $(NAME) 
 re: fclean all
 .PHONY: bonus all clean fclean re
-
