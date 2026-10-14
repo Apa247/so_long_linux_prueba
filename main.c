@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:27:41 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 23:18:56 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/14 19:59:54 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_map	*params_init(t_map *map)
 	map->copy_enemy_y = 1;
 	map->enemy_dir_x = 0;
 	map->enemy_dir_y = 0;
+	map->enemies_paused = 0;
 	return (map);
 }
 

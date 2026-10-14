@@ -9,8 +9,7 @@ static int	cell_free(t_map *map, t_bfs *b, int x, int y)
 	if (x == map->enemy_x && y == map->enemy_y)
 		return (1);
 	c = map->split_map[y][x];
-	return (c != '1' && c != 'C' && c != 'E' && c != 'O'
-		&& c != 'T' && c != 't');
+	return (c != '1' && c != 'C' && c != 'E' && c != 'O');
 }
 
 static void	bfs_fill(t_map *map, t_bfs *b)
@@ -42,23 +41,35 @@ static void	bfs_fill(t_map *map, t_bfs *b)
 	}
 }
 
+static int	step_ok(t_map *map, t_bfs *b, int x, int y)
+{
+	char	c;
+
+	if (x < 0 || y < 0 || x >= b->w || y >= b->h)
+		return (0);
+	c = map->split_map[y][x];
+	return (b->dist[y * b->w + x] != -1 && c != 'T' && c != 't');
+}
+
 static void	best_step(t_map *map, t_bfs *b)
 {
 	int	k;
 	int	nx;
 	int	ny;
+	int	cur;
 	int	best;
 
-	best = b->dist[map->enemy_y * b->w + map->enemy_x];
-	if (best == -1)
+	cur = b->dist[map->enemy_y * b->w + map->enemy_x];
+	if (cur == -1)
 		return ;
+	best = cur + 1;
 	k = -1;
 	while (++k < 4)
 	{
 		nx = map->enemy_x + (k == 0) - (k == 1);
 		ny = map->enemy_y + (k == 2) - (k == 3);
-		if (nx >= 0 && ny >= 0 && nx < b->w && ny < b->h
-			&& b->dist[ny * b->w + nx] != -1
+		if (step_ok(map, b, nx, ny)
+			&& b->dist[ny * b->w + nx] <= cur
 			&& b->dist[ny * b->w + nx] < best)
 		{
 			best = b->dist[ny * b->w + nx];

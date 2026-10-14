@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 18:16:01 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/13 02:50:16 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/14 19:58:43 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_map
 	int				enemy_dir_x;
 	int				move_enemy_y;
 	int				move_enemy_x;
+	int				enemies_paused;
 	int				px;
 	int				py;
 	int				copy_px;

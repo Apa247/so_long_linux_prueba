@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:17:28 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/12 22:09:03 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/14 20:00:42 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	key_select(int keycode, t_map *map)
 		exit(0);
 		return (1);
 	}
+	if (keycode == 112)	/* tecla P */
+		map->enemies_paused = !map->enemies_paused;
 	if ((map->move_stage > 3 || map->move_stage == -1) && map->ki == 0)
 	{
 		if (keycode == 119 || keycode == 115 || keycode == 97 || keycode == 100)

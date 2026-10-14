@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:35:57 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/13 02:59:01 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/14 20:39:51 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ static void	set_enemy_target(t_map *map)
 void	move_enemy_frame_2(int stage, t_map *map, char *image)
 {
 	if (map->move_stage_enemy == stage)
-	{
-		//put_imagen_xpm(map, "./sprites/suelo_ok.xpm", map->enemy_y, map->enemy_x);
 		put_imagen_xpm(map, image, map->enemy_y, map->enemy_x);
-	}
 }
 
 
@@ -102,6 +99,11 @@ void	move_enemies(t_map *map)
 {
 	int	stage;
 
+	if (map->enemies_paused && map->move_stage_enemy == -1)
+	{
+		map->move_start_enemy = get_time_ms();
+		return ;
+	}
 	stage = (get_time_ms() - map->move_start_enemy) / ENEMY_STEP_MS;
 	if (stage <= map->move_stage_enemy)
 		return ;
@@ -111,7 +113,17 @@ void	move_enemies(t_map *map)
 		if (map->copy_n_enemies == 0)
 			map->copy_n_enemies = map->n_enemies;
 		pick_enemy(map);
+		ft_printf("pick: %d,%d fase=%d quedan=%d total=%d\n", map->enemy_x, map->enemy_y, map->enemies_copy, map->copy_n_enemies, map->n_enemies);
 		set_enemy_target(map);
+	}
+	if (map->move_enemy_x == 0 && map->move_enemy_y == 0)
+	{
+		if (map->enemy_dir_x == 0)
+			move_enemy_frame_2(0, map, "./sprites/bubu_right.xpm");
+		else
+			move_enemy_frame_2(0, map, "./sprites/bubu_left.xpm");
+		end_enemy_cycle(map);
+		return ;
 	}
 	if (map->move_enemy_y >= map->move_enemy_x)
 		move_enemy_y(map);
