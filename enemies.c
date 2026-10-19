@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:35:57 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/14 20:39:51 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/14 22:16:32 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	move_enemies(t_map *map)
 {
 	int	stage;
 
-	if (map->enemies_paused && map->move_stage_enemy == -1)
+	if ((map->enemies_paused && map->move_stage_enemy == -1) || (map->ki == 1 && map->n_collect == 0))
 	{
 		map->move_start_enemy = get_time_ms();
 		return ;
@@ -113,7 +113,6 @@ void	move_enemies(t_map *map)
 		if (map->copy_n_enemies == 0)
 			map->copy_n_enemies = map->n_enemies;
 		pick_enemy(map);
-		ft_printf("pick: %d,%d fase=%d quedan=%d total=%d\n", map->enemy_x, map->enemy_y, map->enemies_copy, map->copy_n_enemies, map->n_enemies);
 		set_enemy_target(map);
 	}
 	if (map->move_enemy_x == 0 && map->move_enemy_y == 0)

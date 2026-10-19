@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 18:16:01 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/14 19:58:43 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/19 22:42:59 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define SIZE 				47
 # define STEP_MS 			30
-#define ENEMY_STEP_MS		30
+#define ENEMY_STEP_MS		40
 #define LAST_ENEMY_STAGE	6
 
 # include <ctype.h>

@@ -6,7 +6,7 @@
 /*   By: daparici <daparici@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:34:31 by daparici          #+#    #+#             */
-/*   Updated: 2026/10/14 21:34:26 by daparici         ###   ########.fr       */
+/*   Updated: 2026/10/14 21:51:35 by daparici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	move_frame_2(int stage, t_map *map, char *image)
 		put_imagen_xpm(map, image, map->py, map->px);
 		if (map->move_stage == 25 && map->n_collect != 0)
 			map->ki = 0;
-		if (map->move_stage == 34 && map->n_collect == 0)
+		if (map->move_stage == 70 && map->n_collect == 0)
 		{
 			map->ki = 0;
 			map->supergoku = 1;
@@ -84,16 +84,40 @@ void	super_power_ki(t_map *map)
 		move_frame_2(22, map, "./sprites/supergoku_ki1.xpm");
 		move_frame_2(25, map, "./sprites/supergoku_ki2.xpm");
 		move_frame_2(28, map, "./sprites/supergoku_ki3.xpm");
-		move_frame_2(31, map, "./sprites/supergoku_ki4.xpm");
-		move_frame_2(34, map, "./sprites/supergoku_right.xpm");
+		move_frame_2(31, map, "./sprites/supergoku_ki2.xpm");
+		move_frame_2(34, map, "./sprites/supergoku_ki3.xpm");
+		move_frame_2(37, map, "./sprites/supergoku_ki2.xpm");
+		move_frame_2(40, map, "./sprites/supergoku_ki3.xpm");
+		move_frame_2(43, map, "./sprites/supergoku_ki2.xpm");
+		move_frame_2(46, map, "./sprites/supergoku_ki3.xpm");
+		move_frame_2(49, map, "./sprites/supergoku_ki2.xpm");
+		move_frame_2(52, map, "./sprites/supergoku_ki3.xpm");
+		move_frame_2(55, map, "./sprites/supergoku_ki2.xpm");
+		move_frame_2(58, map, "./sprites/supergoku_ki3.xpm");
+		move_frame_2(61, map, "./sprites/supergoku_ki2.xpm");
+		move_frame_2(64, map, "./sprites/supergoku_ki3.xpm");
+		move_frame_2(67, map, "./sprites/supergoku_ki4.xpm");
+		move_frame_2(70, map, "./sprites/supergoku_right.xpm");
 	}
 	else
 	{
 		move_frame_2(22, map, "./sprites/supergoku_ki1_left.xpm");
 		move_frame_2(25, map, "./sprites/supergoku_ki2_left.xpm");
 		move_frame_2(28, map, "./sprites/supergoku_ki3_left.xpm");
-		move_frame_2(31, map, "./sprites/supergoku_ki4_left.xpm");
-		move_frame_2(34, map, "./sprites/supergoku_left.xpm");
+		move_frame_2(31, map, "./sprites/supergoku_ki2_left.xpm");
+		move_frame_2(34, map, "./sprites/supergoku_ki3_left.xpm");
+		move_frame_2(37, map, "./sprites/supergoku_ki2_left.xpm");
+		move_frame_2(40, map, "./sprites/supergoku_ki3_left.xpm");
+		move_frame_2(43, map, "./sprites/supergoku_ki2_left.xpm");
+		move_frame_2(46, map, "./sprites/supergoku_ki3_left.xpm");
+		move_frame_2(49, map, "./sprites/supergoku_ki2_left.xpm");
+		move_frame_2(52, map, "./sprites/supergoku_ki3_left.xpm");
+		move_frame_2(55, map, "./sprites/supergoku_ki2_left.xpm");
+		move_frame_2(58, map, "./sprites/supergoku_ki3_left.xpm");
+		move_frame_2(61, map, "./sprites/supergoku_ki2_left.xpm");
+		move_frame_2(64, map, "./sprites/supergoku_ki3_left.xpm");
+		move_frame_2(67, map, "./sprites/supergoku_ki4_left.xpm");
+		move_frame_2(70, map, "./sprites/supergoku_left.xpm");
 	}
 }
 
